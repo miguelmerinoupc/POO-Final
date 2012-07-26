@@ -2,7 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/LuisUPC/POO-Final/Benedicto/test/PruebasBenedicto/VentasTest.java</file>
-        <file>file:/C:/LuisUPC/POO-Final/Benedicto/src/benedicto/Ventas.java</file>
+        <file>file:/C:/MERINOUPC/Benedicto/test/PruebasBenedicto/ClientesTest.java</file>
+        <file>file:/C:/MERINOUPC/Benedicto/src/benedicto_CTRL/PersonaCTRL.java</file>
+        <file>file:/C:/MERINOUPC/Benedicto/src/benedicto_clases/Persona.java</file>
+        <file>file:/C:/MERINOUPC/Benedicto/src/benedicto_clases/Benedicto.java</file>
+        <file>file:/C:/MERINOUPC/Benedicto/src/benedicto_clases/TipoPersona.java</file>
     </open-files>
 </project-private>
