@@ -25,6 +25,14 @@ public class PersonaCTRL {
                   return true;
               }
             }
+
+            if (tipo == 'P') {
+              if(persona.getCodigo().equals(codigo)){
+                  this.listapersona.remove(i);
+                  return true;
+              }
+            }
+
         }
        return false;
     }
@@ -53,6 +61,12 @@ public class PersonaCTRL {
             persona = listapersona.get(i);
 
             if (tipo == 'C') {
+              if(persona.getNombres().equals(nombres) || persona.getAp_paterno().equals(ap_paterno) ||
+                      persona.getAp_materno().equals(ap_materno)){
+                  listaencontrada.add(persona);
+              }
+            }
+            if (tipo == 'P') {
               if(persona.getNombres().equals(nombres) || persona.getAp_paterno().equals(ap_paterno) ||
                       persona.getAp_materno().equals(ap_materno)){
                   listaencontrada.add(persona);

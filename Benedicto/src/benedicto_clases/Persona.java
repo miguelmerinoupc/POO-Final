@@ -13,7 +13,7 @@ public class Persona {
     private String dni;
     private String telefono;
     private String celular;
-    private TipoPersona tipo_persona;
+    private char tipo_persona;
     private String codigo;
     
 
@@ -25,7 +25,7 @@ public class Persona {
         this.e_mail = e_mail;
     }
 
-    public Persona(String nombres, String ap_paterno, String ap_materno, String ruc, String e_mail, TipoPersona tipoper) {
+    public Persona(String nombres, String ap_paterno, String ap_materno, String ruc, String e_mail, char tipoper) {
         this.nombres = nombres;
         this.ap_paterno = ap_paterno;
         this.ap_materno = ap_materno;
@@ -38,7 +38,7 @@ public class Persona {
 
     }
 
-    public Persona(String codigo, String nombres, String ap_paterno, String ap_materno, String ruc, String e_mail, TipoPersona tipoper) {
+    public Persona(String codigo, String nombres, String ap_paterno, String ap_materno, String ruc, String e_mail, char tipoper) {
         this.codigo = codigo;
         this.nombres = nombres;
         this.ap_paterno = ap_paterno;
@@ -48,9 +48,7 @@ public class Persona {
         this.tipo_persona = tipoper;
     }
 
-
-
-    public TipoPersona getTipo_persona() {
+    public char getTipo_persona() {
         return tipo_persona;
     }
 
@@ -86,7 +84,7 @@ public class Persona {
         return codigo;
     }
 
-    public void setTipo_persona(TipoPersona tipo_persona) {
+    public void setTipo_persona(char tipo_persona) {
         this.tipo_persona = tipo_persona;
     }
 

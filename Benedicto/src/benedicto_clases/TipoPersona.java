@@ -12,10 +12,14 @@ public class TipoPersona {
     }
 
     public boolean VerificarTipo(Persona persona) {
-       if (persona.getTipo_persona() != null && (persona.getTipo_persona().tipo_persona == 'C' ||
-               persona.getTipo_persona().tipo_persona == 'P')){
+       if (persona.getTipo_persona() != ' ' && (persona.getTipo_persona() == 'C' ||
+           persona.getTipo_persona() == 'P')){
            return true;}
         return false;
+    }
+
+    public char getTipo_persona() {
+        return tipo_persona;
     }
 
 
