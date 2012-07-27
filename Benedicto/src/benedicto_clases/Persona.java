@@ -2,7 +2,7 @@
 
 package benedicto_clases;
 
-
+// autor : Miguel Merino
 public class Persona {
 
     private String nombres;

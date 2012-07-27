@@ -2,7 +2,7 @@
 
 package benedicto_clases;
 
-
+// autor : Miguel Merino
 public class TipoPersona {
     private char tipo_persona;
     private String nombre;
