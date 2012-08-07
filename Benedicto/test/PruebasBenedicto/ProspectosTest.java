@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package PruebasBenedicto;
 
@@ -11,10 +7,7 @@ import java.util.ArrayList;
 import junit.framework.Assert;
 import org.junit.Test;
 
-/**
- *
- * @author u201216787
- */
+
 public class ProspectosTest {
 
     @Test
@@ -27,7 +20,7 @@ public class ProspectosTest {
     public void VerificarTipoPersona() {
         TipoPersona tipoper = new TipoPersona('C');
         Assert.assertNotNull(tipoper);
-        Persona persona = new Persona("Miguel Angel","Merino","Barreto","10258360996","xxxx@xxx.com",tipoper.getTipo_persona());
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
         Assert.assertEquals(true, tipoper.VerificarTipo(persona));
 
     }
@@ -35,22 +28,22 @@ public class ProspectosTest {
 
     @Test
     public void VerificarDatosObligatorios() {
-        Persona persona = new Persona("Miguel Angel","Merino","Barreto","10258360996","xxxx@xxx.com");
-        Persona persona1 = new Persona();
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748","01");
+        PersonaNatural persona1 = new PersonaNatural();
 
 
-        Assert.assertEquals(true, persona.VerificarOblitarios());
+        Assert.assertEquals(true, persona.VerificarObligatorios());
         //Assert.assertEquals(true, persona1.VerificarQueOblitarios());
     }
 
     @Test
     public void BuscarProspecto(){
         TipoPersona tipoper = new TipoPersona('P');
-        Persona persona = new Persona("Miguel Angel","Merino","Barreto","10258360996","xxxx@xxx.com",tipoper.getTipo_persona());
-        Persona persona1 = new Persona("David","Valle","Zevallos","00000000001","zzzz@zzz.com",tipoper.getTipo_persona());
-        Persona persona2 = new Persona("Luis","Vargas","Sanchez","9999999999","aaaa@aaaaa.com",tipoper.getTipo_persona());
-        Persona persona3 = new Persona("David","Sanchez","Salazar","10258360996","xxxx@xxx.com",tipoper.getTipo_persona());
-
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
+        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper.getTipo_persona(),"02");
+        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper.getTipo_persona(),"03");
+        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper.getTipo_persona(),"04");
+        
         PersonaCTRL personaCTRL = new PersonaCTRL();
         personaCTRL.AgregarPersona(persona);
         personaCTRL.AgregarPersona(persona1);
@@ -58,7 +51,7 @@ public class ProspectosTest {
         personaCTRL.AgregarPersona(persona3);
 
         int cantidadencontrada;
-        ArrayList<Persona> listaencontrada = personaCTRL.Buscar("David", "", "", 'P');
+        ArrayList<PersonaNatural> listaencontrada = personaCTRL.Buscar("Franklin", "", "", 'P');
 
         cantidadencontrada = listaencontrada.size();
 
@@ -68,11 +61,11 @@ public class ProspectosTest {
         System.out.println("Encontrados ....:" + cantidadencontrada);
 
 
-         Persona personas;
+         PersonaNatural personas;
 
         for (int i=0;i<listaencontrada.size();i++){
             personas = listaencontrada.get(i);
-            System.out.println("Prospecto : "+personas.getNombres() + " " + personas.getAp_paterno() + " " +  personas.getAp_materno());
+            System.out.println("Prospecto : "+personas.getNombre() + " " + personas.getAp_paterno() + " " +  personas.getAp_materno());
 
         }
     }
@@ -80,18 +73,18 @@ public class ProspectosTest {
     @Test
     public void EliminaProspecto(){
         TipoPersona tipoper = new TipoPersona('P');
-        Persona persona = new Persona("MAMB001","Miguel Angel","Merino","Barreto","10258360996","xxxx@xxx.com",tipoper.getTipo_persona());
-        Persona persona1 = new Persona("LVZ001","Luis","Valle","Zevallos","00000000001","zzzz@zzz.com",tipoper.getTipo_persona());
-        Persona persona2 = new Persona("LVS002","Luis","Vargas","Sanchez","9999999999","aaaa@aaaaa.com",tipoper.getTipo_persona());
-        Persona persona3 = new Persona("DSS001","David","Sanchez","Salazar","10258360996","xxxx@xxx.com",tipoper.getTipo_persona());
-
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
+        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper.getTipo_persona(),"02");
+        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper.getTipo_persona(),"03");
+        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper.getTipo_persona(),"04");
+        
         PersonaCTRL personaCTRL = new PersonaCTRL();
         personaCTRL.AgregarPersona(persona);
         personaCTRL.AgregarPersona(persona1);
         personaCTRL.AgregarPersona(persona2);
         personaCTRL.AgregarPersona(persona3);
 
-        Assert.assertEquals(true, personaCTRL.EliminaPersona("LVZ001", 'P'));
+        Assert.assertEquals(true, personaCTRL.EliminaPersona("03", 'P'));
 
     }
     

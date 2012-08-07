@@ -11,7 +11,7 @@ public class TipoPersona {
         this.tipo_persona = tipo_persona;
     }
 
-    public boolean VerificarTipo(Persona persona) {
+    public boolean VerificarTipo(PersonaNatural persona) {
        if (persona.getTipo_persona() != ' ' && (persona.getTipo_persona() == 'C' ||
            persona.getTipo_persona() == 'P')){
            return true;}
