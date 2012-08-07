@@ -1,13 +1,11 @@
-
 package benedicto_clases;
 
 // Autor : Miguel Merino
-public class Curso {
-    private String codigo;
+public class Estadogrupo {
+    private char codigo;
     private String nombre;
 
     public String getNombre() {
         return nombre;
     }
-
 }
