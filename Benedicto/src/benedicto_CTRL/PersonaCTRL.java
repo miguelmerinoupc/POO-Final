@@ -54,25 +54,26 @@ public class PersonaCTRL {
 
     public ArrayList<PersonaNatural> Buscar(String nombres, String ap_paterno, String ap_materno, char tipo) {
         PersonaNatural persona;
-        ArrayList<PersonaNatural> listapersonaNatural = new ArrayList<PersonaNatural>();
-
+        ArrayList<PersonaNatural> listaBuscada = new ArrayList<PersonaNatural>();
+        
         for (int i = 0; i < listapersonaNatural.size(); i++) {
             persona = listapersonaNatural.get(i);
 
             if (tipo == 'C') {
                 if (persona.getNombre().equals(nombres) || persona.getAp_paterno().equals(ap_paterno)
                         || persona.getAp_materno().equals(ap_materno)) {
-                    listapersonaNatural.add(persona);
+                    listaBuscada.add(persona);
                 }
             }
             if (tipo == 'P') {
                 if (persona.getNombre().equals(nombres) || persona.getAp_paterno().equals(ap_paterno)
                         || persona.getAp_materno().equals(ap_materno)) {
-                    listapersonaNatural.add(persona);
+                    listaBuscada.add(persona);
                 }
             }
         }
 
-        return listapersonaNatural;
+        return listaBuscada;
     }
 }
+
