@@ -1,34 +1,49 @@
-
-
 package benedicto_clases;
 
 // autor : Luis Valle
+import java.util.ArrayList;
+import org.joda.time.DateTime;
+
 public class Documento {
 
-    private char tipoMov;
-    private char tipoDoc;
     private String numero;
-    private String concepto;
-    private String razon;
-    private String ruc;
-    private String fecEmision;
-    private String fecVencimiento;
-    private String fecPago;
+    private DateTime fecEmision;
+    private DateTime fecVencimiento;
+    private DateTime fecPago;
     private char estado;
     private double subTotal;
     private double igv;
     private double total;
     private char moneda;
     private String observaciones;
+    private Tipo_Mov tipoMov;
+    private Tipo_Doc tipodoDoc;
 
-    public Documento(char tipoMov) {
+    public Tipo_Mov getTipoMov() {
+        return tipoMov;
+    }
+
+    public Tipo_Doc getTipodoDoc() {
+        return tipodoDoc;
+    }
+    private Persona persona;
+    private ArrayList<DetalleDocumento> detalle = new ArrayList<DetalleDocumento>();
+
+    public ArrayList<DetalleDocumento> getDetalle() {
+        return detalle;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public Documento(Tipo_Mov tipoMov) {
         this.tipoMov = tipoMov;
     }
 
-    public Documento(char tipoMov, String concepto, String fecEmision, String fecVencimiento,
-                     double subTotal, double igv, double total, char moneda) {
+    public Documento(Tipo_Mov tipoMov, DateTime fecEmision, DateTime fecVencimiento,
+            double subTotal, double igv, double total, char moneda) {
         this.tipoMov = tipoMov;
-        this.concepto = concepto;
         this.fecEmision = fecEmision;
         this.fecVencimiento = fecVencimiento;
         this.subTotal = subTotal;
@@ -38,21 +53,18 @@ public class Documento {
     }
 
     public Documento() {
-        
     }
 
-    public Documento(char tipoMov, String concepto, String fecEmision, String fecVencimiento, String fecPago, char estado) {
+    public Documento(Tipo_Mov tipoMov, String concepto, DateTime fecEmision, DateTime fecVencimiento, DateTime fecPago, char estado) {
         this.tipoMov = tipoMov;
-        this.concepto = concepto;
         this.fecEmision = fecEmision;
         this.fecVencimiento = fecVencimiento;
         this.fecPago = fecPago;
         this.estado = estado;
     }
 
-    public Documento(char tipoMov, String concepto, String fecEmision, String fecVencimiento, String fecPago, char estado, String numero) {
+    public Documento(Tipo_Mov tipoMov, DateTime fecEmision, DateTime fecVencimiento, DateTime fecPago, char estado, String numero) {
         this.tipoMov = tipoMov;
-        this.concepto = concepto;
         this.fecEmision = fecEmision;
         this.fecVencimiento = fecVencimiento;
         this.fecPago = fecPago;
@@ -60,58 +72,52 @@ public class Documento {
         this.numero = numero;
     }
 
-    public char getTipoMov() {
-        return tipoMov;
-    }
 
-    public boolean VerificarOblitarios () {
-        if (this.concepto == null || this.concepto.trim().equals("")){
-            System.out.println("Concepto");
-            return false;}
-        if (this.fecEmision == null || this.fecEmision.trim().equals("")){
+    public boolean VerificarOblitarios() {
+        if (this.fecEmision == null) {
             System.out.println("Emision");
-            return false;}
-        if (this.fecVencimiento == null || this.fecVencimiento.trim().equals("")){
+            return false;
+        }
+        if (this.fecVencimiento == null) {
             System.out.println("Vencimiento");
-            return false;}
-        if (this.subTotal <= 0.00){
+            return false;
+        }
+        if (this.subTotal <= 0.00) {
             System.out.println("SubTotal");
-            return false;}
-        if (this.igv <= 0.00){
+            return false;
+        }
+        if (this.igv <= 0.00) {
             System.out.println("Igv");
-            return false;}
-        if (this.total <= 0.00){
+            return false;
+        }
+        if (this.total <= 0.00) {
             System.out.println("Total");
-            return false;}
-        if (this.moneda == ' '){
+            return false;
+        }
+        if (this.moneda == ' ') {
             System.out.println("Moneda");
-            return false;}
+            return false;
+        }
         return true;
-    }
-
-    public String getConcepto() {
-        return concepto;
     }
 
     public char getEstado() {
         return estado;
     }
 
-    public String getFecEmision() {
+    public DateTime getFecEmision() {
         return fecEmision;
     }
 
-    public String getFecPago() {
+    public DateTime getFecPago() {
         return fecPago;
     }
 
-    public String getFecVencimiento() {
+    public DateTime getFecVencimiento() {
         return fecVencimiento;
     }
 
     public String getNumero() {
         return numero;
     }
-
-   
 }

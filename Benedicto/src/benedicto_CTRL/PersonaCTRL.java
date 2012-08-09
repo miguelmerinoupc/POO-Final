@@ -35,7 +35,7 @@ public class PersonaCTRL {
         }
         return false;
     }
-
+ //<------FALTA
     public boolean VolverAProspecto(String codigo, char tipo) {
         PersonaNatural persona;
 
@@ -44,6 +44,7 @@ public class PersonaCTRL {
 
             if (tipo == 'C') {
                 if (persona.getCodigo().equals(codigo)) {
+                   
                     //Persona.ActualizaEstado(persona.getTipo_persona());
                     return true;
                 }

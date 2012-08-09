@@ -93,7 +93,7 @@ public class ClientesTest {
         TipoPersona tipoper = new TipoPersona('P');
         TipoPersona tipoper2 = new TipoPersona('C');
         PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
-        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper.getTipo_persona(),"02");
+        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper2.getTipo_persona(),"02");
         PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper.getTipo_persona(),"03");
         PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper.getTipo_persona(),"04");
         
