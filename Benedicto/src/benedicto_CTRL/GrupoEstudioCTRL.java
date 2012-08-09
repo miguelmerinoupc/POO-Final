@@ -15,7 +15,7 @@ public class GrupoEstudioCTRL {
     private DateTime fecha = new DateTime(2012, 1, 15, 0, 0);
 
     public ArrayList<GrupoEstudio> BuscarGrupo(String nomGrupo, String nomAcademia, String nomCurso,
-            String fecInicio, String fecFin, String nomEstado) {
+            DateTime fecInicio, DateTime fecFin, String nomEstado) {
 
         GrupoEstudio grupoEstudio;
         ArrayList<GrupoEstudio> listaencontrada = new ArrayList<GrupoEstudio>();
@@ -61,5 +61,5 @@ public class GrupoEstudioCTRL {
         Collections.sort(listaencontrada, new GrupoEstudioSortFecInicio());
 
         return listaencontrada;
-    }
+    }}
 }
