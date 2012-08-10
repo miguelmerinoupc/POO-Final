@@ -1,8 +1,5 @@
 package benedicto_clases.documentos;
 
-// autor : Luis Valle
-import benedicto_clases.documentos.Tipo_Doc;
-import benedicto_clases.documentos.Tipo_Mov;
 import benedicto_clases.persona.Persona;
 import java.util.ArrayList;
 import org.joda.time.DateTime;
@@ -20,16 +17,16 @@ public class Documento {
     private char moneda;
     private String observaciones;
     private Tipo_Mov tipoMov;
-    private Tipo_Doc tipodoDoc;
+    private Tipo_Doc tipoDoc;
+    private Persona persona;
 
     public Tipo_Mov getTipoMov() {
         return tipoMov;
     }
 
     public Tipo_Doc getTipodoDoc() {
-        return tipodoDoc;
+        return tipoDoc;
     }
-    private Persona persona;
     private ArrayList<DetalleDocumento> detalle = new ArrayList<DetalleDocumento>();
 
     public ArrayList<DetalleDocumento> getDetalle() {
@@ -44,15 +41,34 @@ public class Documento {
         this.tipoMov = tipoMov;
     }
 
-    public Documento(Tipo_Mov tipoMov, DateTime fecEmision, DateTime fecVencimiento,
-            double subTotal, double igv, double total, char moneda) {
+    public Documento(Tipo_Mov tipoMov, Tipo_Doc tipoDoc, String numero, DateTime fecEmision, DateTime fecVencimiento, DateTime fecPago,
+            double subTotal, double igv, double total, char moneda, char estado) {
+        this.numero = numero;
         this.tipoMov = tipoMov;
+        this.tipoDoc = tipoDoc;
         this.fecEmision = fecEmision;
         this.fecVencimiento = fecVencimiento;
+        this.fecPago = fecPago;
         this.subTotal = subTotal;
         this.igv = igv;
         this.total = total;
         this.moneda = moneda;
+        this.estado = estado;
+    }
+
+    public Documento(Tipo_Mov tipoMov, Tipo_Doc tipoDoc, String numero, DateTime fecEmision, DateTime fecVencimiento, DateTime fecPago,
+            double subTotal, double igv, double total, Persona persona, char estado) {
+        this.numero = numero;
+        this.tipoMov = tipoMov;
+        this.tipoDoc = tipoDoc;
+        this.fecEmision = fecEmision;
+        this.fecVencimiento = fecVencimiento;
+        this.fecPago = fecPago;
+        this.subTotal = subTotal;
+        this.igv = igv;
+        this.total = total;
+        this.persona = persona;
+        this.estado = estado;
     }
 
     public Documento() {
@@ -74,7 +90,6 @@ public class Documento {
         this.estado = estado;
         this.numero = numero;
     }
-
 
     public boolean VerificarOblitarios() {
         if (this.fecEmision == null) {

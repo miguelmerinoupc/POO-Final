@@ -1,8 +1,5 @@
-
-
 package benedicto_clases.documentos;
 
-// autor : Luis Valle
 public class Tipo_Mov {
 
     private char tipoMov;
@@ -15,12 +12,11 @@ public class Tipo_Mov {
     public char getTipoMov() {
         return tipoMov;
     }
-/*
+
     public boolean VerificarTipo(Documento documento) {
-       if (documento.getTipoMov() != ' ' && (documento.getTipoMov() == 'C' ||
-           documento.getTipoMov() == 'V')){
-           return true;}
+        if (documento.getTipoMov().getTipoMov() != ' ' && documento.getTipoMov().getTipoMov() == 'C' || documento.getTipoMov().getTipoMov() == 'V') {
+            return true;
+        }
         return false;
     }
-*/
 }
