@@ -8,11 +8,28 @@ import org.joda.time.DateTime;
 
 public class GrupoEstudio {
 
+    public GrupoEstudio(String nombre, DateTime fechaInicio, DateTime fechaFin) {
+        this.nombre = nombre;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+    }
+
     private String grupoCodigo;
     private String nombre;
+    private Academia academia;
+    private DateTime fechaInicio;
+    private DateTime fechaFin;
+    private Estadogrupo estado;
+    private String linkWeb;
+    private String coordenadasGoogle;
+    private ArrayList<DetalleGrupo> detalleGrupo;
+
+    public GrupoEstudio() {
+        
+    }
 
     public ArrayList<DetalleGrupo> getDetalle() {
-        return detalle;
+        return detalleGrupo;
     }
 
     public Estadogrupo getEstado() {
@@ -30,18 +47,24 @@ public class GrupoEstudio {
     public String getNombre() {
         return nombre;
     }
-    private DateTime fechaInicio;
-    private DateTime fechaFin;
-    private Estadogrupo estado;
-    private String linkWeb;
-    private String localCodigo;
-    private String coordenadasGoogle;
-    
-    private ArrayList<DetalleGrupo> detalle;
-    private ArrayList<Academia> academia;
 
-    public ArrayList<Academia> getAcademia() {
+    public Academia getAcademia() {
         return academia;
     }
-    
+
+    public boolean VerificarObligatorios() {
+        if (this.nombre == null || this.nombre.isEmpty()){
+            return false;
+        }
+
+        if (this.fechaInicio == null) {
+            return false;
+        }
+
+        if (this.fechaInicio == null) {
+            return false;
+        }
+
+        return true;
+    }
 }

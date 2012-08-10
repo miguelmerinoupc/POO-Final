@@ -24,6 +24,12 @@ public class UsuarioTest {
         String ap_Materno = "";
         String usuario = "mmerino";
         String email = "";
-        DateTime fecingreso = DateTime.now();
+        DateTime fechaingreso = new DateTime();
+        fechaingreso = DateTime.now();
+        String cargo = "Administrador";
+        String clave = "";
+
+        AdmUsuario usuario1 = new AdmUsuario(dni, nombre, ap_Paterno, ap_Materno, usuario, email, fechaingreso, cargo, clave);
+        Assert.assertEquals(true, AdmUsuario.VerificarObligatorios());
     }
 }
