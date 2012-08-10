@@ -1,5 +1,8 @@
 package PruebasBenedicto;
 
+import benedicto_clases.persona.PersonaNatural;
+import benedicto_clases.persona.Persona;
+import benedicto_clases.persona.TipoPersona;
 import benedicto_CTRL.*;
 import benedicto_clases.*;
 import java.util.ArrayList;

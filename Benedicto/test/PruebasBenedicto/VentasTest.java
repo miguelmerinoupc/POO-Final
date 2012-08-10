@@ -2,6 +2,8 @@
 // autor : Luis Valle
 package PruebasBenedicto;
 
+import benedicto_clases.documentos.Documento;
+import benedicto_clases.documentos.Tipo_Mov;
 import benedicto_CTRL.*;
 import benedicto_clases.*;
 import java.util.ArrayList;

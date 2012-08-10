@@ -1,6 +1,6 @@
 package benedicto_ordenamientos;
 
-import benedicto_clases.GrupoEstudio;
+import benedicto_clases.Grupo_de_Estudios.GrupoEstudio;
 import java.util.Comparator;
 
 // Autor : Miguel Merino

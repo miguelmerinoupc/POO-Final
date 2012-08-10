@@ -5,6 +5,7 @@ package benedicto_ordenamientos;
  * @author FRANKLIN
  */
 
+import benedicto_clases.documentos.Documento;
 import benedicto_clases.*;
 import java.util.Comparator;
 

@@ -1,9 +1,11 @@
 package benedicto_CTRL;
 
 // Autor : Miguel Merino
-import benedicto_Asociaciones.DetalleGrupo;
+import benedicto_clases.Grupo_de_Estudios.GrupoEstudio;
+import benedicto_clases.Grupo_de_Estudios.Academia;
+import benedicto_Asociaciones.*;
 import benedicto_clases.*;
-import benedicto_ordenamientos.GrupoEstudioSortFecInicio;
+import benedicto_ordenamientos.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.joda.time.DateTime;
@@ -61,5 +63,5 @@ public class GrupoEstudioCTRL {
         Collections.sort(listaencontrada, new GrupoEstudioSortFecInicio());
 
         return listaencontrada;
-    }}
+    }
 }

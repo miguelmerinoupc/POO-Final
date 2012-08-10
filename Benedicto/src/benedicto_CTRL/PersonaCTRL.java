@@ -1,5 +1,7 @@
 package benedicto_CTRL;
 
+import benedicto_clases.persona.PersonaNatural;
+import benedicto_clases.persona.Persona;
 import benedicto_clases.*;
 import java.util.ArrayList;
 
