@@ -9,4 +9,17 @@ public class DetalleGrupo {
     private Aula aula;
     private Curso curso;
     private Instructor instructor;
+
+    public DetalleGrupo(Local local, Aula aula, Curso curso, Instructor instructor) {
+        this.local = local;
+        this.aula = aula;
+        this.curso = curso;
+        this.instructor = instructor;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+
 }

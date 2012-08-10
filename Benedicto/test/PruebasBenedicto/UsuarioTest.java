@@ -30,6 +30,6 @@ public class UsuarioTest {
         String clave = "";
 
         AdmUsuario usuario1 = new AdmUsuario(dni, nombre, ap_Paterno, ap_Materno, usuario, email, fechaingreso, cargo, clave);
-        Assert.assertEquals(true, AdmUsuario.VerificarObligatorios());
+        Assert.assertEquals(true, usuario1.VerificarObligatorios());
     }
 }

@@ -33,6 +33,10 @@ public class AdmUsuario {
         this.clave = clave;
     }
 
+    public AdmUsuario() {
+        
+    }
+
     public boolean VerificarObligatorios() {
         if (this.dni == null || this.dni.trim().equals("")) {
             return false;

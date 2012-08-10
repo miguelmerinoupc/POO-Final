@@ -13,7 +13,6 @@ public class GrupoEstudio {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
-
     private String grupoCodigo;
     private String nombre;
     private Academia academia;
@@ -25,7 +24,6 @@ public class GrupoEstudio {
     private ArrayList<DetalleGrupo> detalleGrupo;
 
     public GrupoEstudio() {
-        
     }
 
     public ArrayList<DetalleGrupo> getDetalle() {
@@ -53,7 +51,7 @@ public class GrupoEstudio {
     }
 
     public boolean VerificarObligatorios() {
-        if (this.nombre == null || this.nombre.isEmpty()){
+        if (this.nombre == null || this.nombre.isEmpty()) {
             return false;
         }
 
@@ -66,5 +64,35 @@ public class GrupoEstudio {
         }
 
         return true;
+    }
+
+    public GrupoEstudio(String nombre, Academia academia, DateTime fecinicio, DateTime fecFin, String link, String coordenadas, ArrayList<DetalleGrupo> detalle) {
+        this.nombre = nombre;
+        this.academia = academia;
+        this.fechaInicio = fecinicio;
+        this.fechaFin = fecFin;
+        this.linkWeb = link;
+        this.coordenadasGoogle = coordenadas;
+        this.detalleGrupo = detalle;
+    }
+
+    public void AltaGrupo(String nombre,
+            Academia academia,
+            DateTime fecinicio,
+            DateTime fecFin,
+            String link,
+            String coordenadas,
+            ArrayList<DetalleGrupo> detalle) {
+//listaGrupo
+
+        GrupoEstudio grupoEstudio = new GrupoEstudio(nombre,
+                academia,
+                fecinicio,
+                fecFin,
+                link,
+                coordenadas,
+                detalle);
+
+
     }
 }

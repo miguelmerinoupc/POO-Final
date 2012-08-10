@@ -27,4 +27,17 @@ public class GrupoEstudioTest {
 
         Assert.assertEquals(true, grupo.VerificarObligatorios());
     }
+
+//    @Test
+//    public void VerificarAltaGrupo() {
+//        AltaGrupo(String
+//        nombre,
+//        Academia academia,
+//                DateTime fecinicio,
+//        DateTime fecFin,
+//                String link,
+//        String coordenadas,
+//                ArrayList
+//        <DetalleGrupo > detalle)
+//    }
 }
