@@ -4,8 +4,10 @@
  */
 package benedicto_CTRL;
 
+import benedicto_clases.*;
 import benedicto_clases.documentos.*;
 import benedicto_clases.persona.PersonaJuridica;
+import benedicto_clases.persona.PersonaNatural;
 import benedicto_ordenamientos.DocumentoSortFecVencimiento;
 import java.util.ArrayList;
 import java.util.Collections;

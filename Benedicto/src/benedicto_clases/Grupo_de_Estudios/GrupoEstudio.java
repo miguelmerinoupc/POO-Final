@@ -18,6 +18,14 @@ public class GrupoEstudio {
     private Academia academia;
     private DateTime fechaInicio;
     private DateTime fechaFin;
+
+    public String getCoordenadasGoogle() {
+        return coordenadasGoogle;
+    }
+
+    public String getLinkWeb() {
+        return linkWeb;
+    }
     private Estadogrupo estado;
     private String linkWeb;
     private String coordenadasGoogle;

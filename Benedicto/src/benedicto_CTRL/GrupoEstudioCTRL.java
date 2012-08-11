@@ -17,6 +17,15 @@ public class GrupoEstudioCTRL {
     private ArrayList<GrupoEstudio> listaGrupo = new ArrayList<GrupoEstudio>();
     private DateTime fecha = new DateTime(2012, 1, 15, 0, 0);
 
+    public Boolean ValidoCamposObligatorios(GrupoEstudio grupoEstudio) {
+        return grupoEstudio.VerificarObligatorios();
+    }
+
+    public Boolean AltaGrupo(GrupoEstudio grupoEstudio) {
+        listaGrupo.add(grupoEstudio);
+        return true;
+    }
+
     public ArrayList<GrupoEstudio> BuscarGrupo(String nomGrupo, String nomAcademia, String nomCurso,
             DateTime fecInicio, DateTime fecFin, String nomEstado) {
 
@@ -66,5 +75,21 @@ public class GrupoEstudioCTRL {
         return listaencontrada;
     }
 
-    
+    public void ListarResultado() {
+        GrupoEstudio grupo;
+        for (int i = 0; i < listaGrupo.size(); i++) {
+            grupo = listaGrupo.get(i);
+
+            System.out.println("Grupo: " + grupo.getNombre());
+            System.out.println("\tAcademia: " + grupo.getAcademia().getNombre());
+            System.out.println("\tFecha Inicio: " + grupo.getFechaInicio().toString());
+            System.out.println("\tFecha Fin: " + grupo.getFechaFin().toString());
+            System.out.println("\tLink Sillabus: " + grupo.getLinkWeb());
+            System.out.println("\tCoordenadas Google: " + grupo.getCoordenadasGoogle());
+            System.out.println("Grupo: " + grupo.getNombre());
+
+
+            System.out.println("-");
+        }
+    }
 }

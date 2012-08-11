@@ -31,7 +31,7 @@ public class CompraTest {
         Assert.assertNotNull(tipomov);
         Documento documento = new Documento(tipomov);
         Assert.assertEquals(true, tipomov.VerificarTipo(documento));
-        Date fecha = new Date();
+        java.util.Date fecha = new Date();
     }
 
     @Test
