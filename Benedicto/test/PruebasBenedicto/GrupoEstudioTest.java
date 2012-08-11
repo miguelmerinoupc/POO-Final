@@ -25,7 +25,7 @@ public class GrupoEstudioTest {
         GrupoEstudio grupo;
         Academia academia;
 
-        String nombre = "POO";
+        String nombre = "Modulo 1";
         DateTime fecInicio = new DateTime(2012, 1, 15, 0, 0);
         DateTime fecFin = new DateTime(2012, 1, 30, 0, 0);
 
@@ -71,7 +71,7 @@ public class GrupoEstudioTest {
         VerificarAltaGrupo();
 
         ArrayList<GrupoEstudio> listadoEncontrado =
-                grupoCTRL.BuscarGrupo("POO", "Ing. Sistemas", "Calculo I", null, null, null);
+                grupoCTRL.BuscarGrupo("Modulo 1", "Ing. Sistemas", "Calculo I", null, null, null);
 
         Assert.assertEquals(true, listadoEncontrado.size() > 0);
 

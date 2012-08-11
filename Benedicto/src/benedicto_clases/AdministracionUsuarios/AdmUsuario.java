@@ -1,5 +1,3 @@
-
-
 package benedicto_clases.AdministracionUsuarios;
 
 import org.joda.time.DateTime;
@@ -21,8 +19,8 @@ public class AdmUsuario {
     private Rol rol;
 
     public AdmUsuario(String dni, String nombre, String ap_Paterno, String ap_Materno,
-                      String usuario, String email, DateTime fechaingreso, String cargo,
-                      String clave, Rol rol) {
+            String usuario, String email, DateTime fechaingreso, String cargo,
+            String clave, Rol rol) {
 
         this.dni = dni;
         this.nombre = nombre;
@@ -37,8 +35,8 @@ public class AdmUsuario {
     }
 
     public AdmUsuario(String dni, String nombre, String ap_Paterno, String ap_Materno,
-                      String usuario, String email, DateTime fechaingreso, String cargo,
-                      String clave) {
+            String usuario, String email, DateTime fechaingreso, String cargo,
+            String clave) {
 
         this.dni = dni;
         this.nombre = nombre;
@@ -51,8 +49,8 @@ public class AdmUsuario {
         this.clave = clave;
     }
 
+
     public AdmUsuario() {
-        
     }
 
     // Constructor para validar usuario al momento de su ingreso
@@ -91,7 +89,7 @@ public class AdmUsuario {
         if (this.rol == null) {
             return false;
         }
-        
+
         return true;
     }
 
@@ -119,9 +117,19 @@ public class AdmUsuario {
         return clave;
     }
 
+    public String getCargo() {
+        return cargo;
+    }
 
+    public String getDni() {
+        return dni;
+    }
 
+    public String getEmail() {
+        return email;
+    }
 
-
-
+    public DateTime getFechaIngreso() {
+        return fechaIngreso;
+    }
 }
