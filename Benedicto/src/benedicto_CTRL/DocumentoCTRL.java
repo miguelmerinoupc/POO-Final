@@ -4,7 +4,7 @@
  */
 package benedicto_CTRL;
 
-import benedicto_clases.*;
+import benedicto_clases.Grupo_de_Estudios.GrupoEstudio;
 import benedicto_clases.documentos.*;
 import benedicto_clases.persona.PersonaJuridica;
 import benedicto_clases.persona.PersonaNatural;
@@ -25,20 +25,20 @@ public class DocumentoCTRL {
         this.listadocumento.add(documento);
     }
 
-    public boolean EliminaDocumento(String numero, char tipo) {
+    public boolean EliminaDocumento(String numero, Tipo_Mov tipo) {
         Documento documento;
 
         for (int i = 0; i < listadocumento.size(); i++) {
             documento = listadocumento.get(i);
 
-            if (tipo == 'V') {
+            if (tipo.getTipoMov() == 'V') {
                 if (documento.getNumero().equals(numero)) {
                     this.listadocumento.remove(i);
                     return true;
                 }
             }
 
-            if (tipo == 'C') {
+            if (tipo.getTipoMov() == 'C') {
                 if (documento.getNumero().equals(numero)) {
                     this.listadocumento.remove(i);
                     return true;
@@ -49,43 +49,37 @@ public class DocumentoCTRL {
         return false;
     }
 
-    public ArrayList<Documento> BuscarMovimiento(Articulo concepto, String numero, DateTime fecEmision, String empresa, DateTime fecVencimiento, DateTime fecPago, char estado) {
+    public ArrayList<Documento> BuscarMovimiento(Articulo articulo, GrupoEstudio grupo, String numero,
+            DateTime fecEmision, String identificacion, DateTime fecVencimiento, DateTime fecPago, char estado) {
         ArrayList<Documento> listadoBusqueda = new ArrayList<Documento>();
-        ArrayList<DetalleDocumento> detalleDocumento;
 
-        if (concepto.getNombre().isEmpty()) {
-            for (Documento documento : listadocumento) {
-                if (documento.getTipoMov().getTipoMov() == 'C'
-                        && documento.getTipodoDoc().getTipoDoc() == 'F'
-                        && (numero.isEmpty() || documento.getNumero() == numero)
+        for (Documento documento : listadocumento) {
+            if (documento.getTipoMov().getTipoMov() == 'C') {
+                if (documento.getTipodoDoc().getTipoDoc() == 'F'
+                        && (numero.isEmpty() || documento.getNumero().equals(numero))
                         && (fecEmision == null || documento.getFecEmision().equals(fecEmision))
-                        && (empresa.isEmpty() || ((PersonaJuridica) documento.getPersona() != null
-                        && ((PersonaJuridica) documento.getPersona()).getRuc().startsWith(empresa)))
+                        && (identificacion.isEmpty() || ((PersonaJuridica) documento.getPersona() != null
+                        && ((PersonaJuridica) documento.getPersona()).getRuc().startsWith(identificacion)))
                         && (fecVencimiento == null || documento.getFecVencimiento().equals(fecVencimiento))
                         && (fecPago == null || documento.getFecPago().equals(fecPago))
                         && (estado == ' ' || documento.getEstado() == estado)) {
+                    listadoBusqueda.add(documento);
+                }
+            } else {
+                if (documento.getTipodoDoc().getTipoDoc() == 'C'
+                        && (numero.isEmpty() || documento.getNumero().equals(numero))
+                        && (fecEmision == null || documento.getFecEmision().equals(fecEmision))
+                        && (identificacion.isEmpty() || ((PersonaNatural) documento.getPersona() != null
+                        && ((PersonaNatural) documento.getPersona()).getDni().startsWith(identificacion)))
+                        && (fecVencimiento == null || documento.getFecVencimiento().equals(fecVencimiento))
+                        && (fecPago == null || documento.getFecPago().equals(fecPago))
+                        && (estado == ' ' || documento.getEstado() == estado)) {
+                    listadoBusqueda.add(documento);
+                }
+            }
 
-                    listadoBusqueda.add(documento);
-                }
-            }
-        } else {
-            for (Documento documento : listadocumento) {
-                detalleDocumento = documento.getDetalle();
-                for (DetalleDocumento detalle : detalleDocumento) {
-                    if (detalle.getArticulo() != null && detalle.getArticulo().getNombre() == concepto.getNombre()
-                            && documento.getTipoMov().getTipoMov() == 'C' && documento.getTipodoDoc().getTipoDoc() == 'F'
-                            && (documento.getNumero() == numero) && (empresa.isEmpty() || ((PersonaJuridica) documento.getPersona() != null
-                            && ((PersonaJuridica) documento.getPersona()).getRuc().startsWith(empresa)))
-                            && (fecPago == null || documento.getFecPago().equals(fecPago))
-                            && (fecEmision == null || documento.getFecEmision().equals(fecEmision))
-                            && (fecVencimiento == null || documento.getFecVencimiento().equals(fecVencimiento))
-                            && documento.getNumero().startsWith(numero)) {
-                    }
-                    listadoBusqueda.add(documento);
-                    break;
-                }
-            }
         }
+
         Collections.sort(listadoBusqueda, new DocumentoSortFecVencimiento());
 
         return listadoBusqueda;
