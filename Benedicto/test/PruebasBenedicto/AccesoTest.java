@@ -3,6 +3,9 @@ package PruebasBenedicto;
 import benedicto_CTRL.AdmUsuarioCTRL;
 import benedicto_clases.AdministracionUsuarios.Acceso;
 import benedicto_clases.AdministracionUsuarios.AdmUsuario;
+import benedicto_clases.AdministracionUsuarios.AdmUsuario;
+import java.util.ArrayList;
+import java.util.ArrayList;
 import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
@@ -20,6 +23,7 @@ public class AccesoTest {
 
     @Test
     public void VerificarIngresoDeDatos() throws Exception {
+        Acceso acceso = new Acceso("mmerino", "123456");
 
         AdmUsuario usuario1 = new AdmUsuario("25836099", "Miguel Angel", "Merino", "Barreto",
                 "mmerino", "ma_merinob@hotmail.com", new DateTime(2012, 2, 15, 0, 0),
@@ -36,9 +40,12 @@ public class AccesoTest {
         usuarioCTRL.AgregarUsuario(usuario2);
         usuarioCTRL.AgregarUsuario(usuario3);
 
+        int cantidadencontrada;
+        ArrayList<AdmUsuario> listaencontrada = usuarioCTRL.BuscarUsuario(acceso.getUsuario());
 
-        Acceso acceso = new Acceso("mmerino", "123456");
-        Assert.assertEquals(true, acceso.VerificaAcceso());
+        //cantidadencontrada = listaencontrada.size();
+
+        Assert.assertEquals(true, acceso.VerificaAcceso(listaencontrada));
 
     }
 }

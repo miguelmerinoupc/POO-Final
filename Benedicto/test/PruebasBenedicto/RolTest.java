@@ -2,7 +2,6 @@ package PruebasBenedicto;
 
 import benedicto_clases.AdministracionUsuarios.*;
 import benedicto_clases.AdministracionUsuarios.Permiso;
-import java.util.ArrayList;
 import junit.framework.Assert;
 import org.junit.Test;
 
