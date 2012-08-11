@@ -21,7 +21,7 @@ public class ClientesTest {
     public void VerificarTipoPersona() {
         TipoPersona tipoper = new TipoPersona('C');
         Assert.assertNotNull(tipoper);
-        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper, "01");
         Assert.assertEquals(true, tipoper.VerificarTipo(persona));
 
     }
@@ -29,7 +29,7 @@ public class ClientesTest {
     @Test
     public void VerificarDatosObligatorios() {
         TipoPersona tipoper = new TipoPersona('C');
-        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper, "01");
 
 
         Assert.assertEquals(true, persona.VerificarObligatorios());
@@ -39,13 +39,13 @@ public class ClientesTest {
     @Test
     public void Buscarcliente() {
         TipoPersona tipoper = new TipoPersona('C');
-        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
-        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper.getTipo_persona(),"02");
-        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper.getTipo_persona(),"03");
-        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper.getTipo_persona(),"04");
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper, "01");
+        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper, "02");
+        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper, "03");
+        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper, "04");
 
- 
-        
+
+
         PersonaCTRL personaCTRL = new PersonaCTRL();
         personaCTRL.AgregarPersona(persona);
         personaCTRL.AgregarPersona(persona1);
@@ -65,22 +65,18 @@ public class ClientesTest {
 
         PersonaNatural personas;
 
-        for (int i = 0; i < listaencontrada.size(); i++) {
-            personas = listaencontrada.get(i);
-            System.out.println("Cliente : " + personas.getNombre() + " " + personas.getAp_paterno() + " " + personas.getAp_materno());
-
-        }
+        personaCTRL.ListarResultado(listaencontrada);
     }
 
     @Test
     public void EliminaCliente() {
         TipoPersona tipoper = new TipoPersona('C');
-        
-        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
-        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper.getTipo_persona(),"02");
-        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper.getTipo_persona(),"03");
-        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper.getTipo_persona(),"04");
-        
+
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper, "01");
+        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper, "02");
+        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper, "03");
+        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper, "04");
+
         PersonaCTRL personaCTRL = new PersonaCTRL();
         personaCTRL.AgregarPersona(persona);
         personaCTRL.AgregarPersona(persona1);
@@ -95,11 +91,11 @@ public class ClientesTest {
     public void PasarDeClienteAProspecto() {
         TipoPersona tipoper = new TipoPersona('P');
         TipoPersona tipoper2 = new TipoPersona('C');
-        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper.getTipo_persona(), "01");
-        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper2.getTipo_persona(),"02");
-        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper.getTipo_persona(),"03");
-        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper.getTipo_persona(),"04");
-        
+        PersonaNatural persona = new PersonaNatural("Franklin", "Velita", "Zorrilla", "15474748", tipoper, "01");
+        PersonaNatural persona1 = new PersonaNatural("Luis", "Valle", "Zevallos", "15474732", tipoper2, "02");
+        PersonaNatural persona2 = new PersonaNatural("Luis", "Vargas", "Sanchez", "9999999999", tipoper, "03");
+        PersonaNatural persona3 = new PersonaNatural("David", "Sanchez", "Salazar", "10258360996", tipoper, "04");
+
         PersonaCTRL personaCTRL = new PersonaCTRL();
         personaCTRL.AgregarPersona(persona);
         personaCTRL.AgregarPersona(persona1);

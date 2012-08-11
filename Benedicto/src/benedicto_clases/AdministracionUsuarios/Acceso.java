@@ -32,14 +32,6 @@ public class Acceso {
         if (this.usuario.isEmpty() || this.clave.isEmpty()) {
             throw new Exception("Debe ingresar usuario y contraseña");
         }
-        System.out.println("AAAAAAAA" + this.usuario);
-//        AdmUsuarioCTRL usuarioCTRL = new AdmUsuarioCTRL();
-//        //ArrayList<AdmUsuario> listaencontrada = usuarioCTRL.BuscarUsuario(this.usuario);
-//        int cantidadencontrada;
-//
-//        cantidadencontrada = listaencontrada.size();
-//        System.out.println(cantidadencontrada);
-
         if (listaencontrada.size() == 1) {
             AdmUsuario user;
             for (int i = 0; i < listaencontrada.size(); i++) {

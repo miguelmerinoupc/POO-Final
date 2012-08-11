@@ -8,18 +8,9 @@ public class PersonaNatural extends Persona {
     private String ap_paterno;
     private String ap_materno;
     private String dni;
-    private char tipo_persona;
+    private TipoPersona tipo_persona;
 
-    public PersonaNatural(String nombre, String ap_paterno, String ap_materno, String dni, char tipo_persona, String codigo) {
-        super(codigo);
-        this.nombre = nombre;
-        this.ap_paterno = ap_paterno;
-        this.ap_materno = ap_materno;
-        this.dni = dni;
-        this.tipo_persona = tipo_persona;
-    }
-    
-        public PersonaNatural(String nombre, String ap_paterno, String ap_materno, String dni, String codigo) {
+    public PersonaNatural(String nombre, String ap_paterno, String ap_materno, String dni, TipoPersona tipo_persona, String codigo) {
         super(codigo);
         this.nombre = nombre;
         this.ap_paterno = ap_paterno;
@@ -28,8 +19,16 @@ public class PersonaNatural extends Persona {
         this.tipo_persona = tipo_persona;
     }
 
+    public PersonaNatural(String nombre, String ap_paterno, String ap_materno, String dni, String codigo) {
+        super(codigo);
+        this.nombre = nombre;
+        this.ap_paterno = ap_paterno;
+        this.ap_materno = ap_materno;
+        this.dni = dni;
+        this.tipo_persona = tipo_persona;
+    }
 
-    public PersonaNatural(String nombre, String ap_paterno, String ap_materno, String dni, char tipo_persona, String codigo, String e_mail, String telefono, String celular) {
+    public PersonaNatural(String nombre, String ap_paterno, String ap_materno, String dni, TipoPersona tipo_persona, String codigo, String e_mail, String telefono, String celular) {
         super(codigo, e_mail, telefono, celular);
         this.nombre = nombre;
         this.ap_paterno = ap_paterno;
@@ -38,7 +37,6 @@ public class PersonaNatural extends Persona {
         this.tipo_persona = tipo_persona;
     }
 
-        
     public boolean VerificarObligatorios() {
         if (this.nombre == null || this.nombre.trim().equals("")) {
             return false;
@@ -79,11 +77,11 @@ public class PersonaNatural extends Persona {
         this.dni = dni;
     }
 
-    public char getTipo_persona() {
+    public TipoPersona getTipo_persona() {
         return tipo_persona;
     }
 
-    public void setTipo_persona(char tipo_persona) {
+    public void setTipo_persona(TipoPersona tipo_persona) {
         this.tipo_persona = tipo_persona;
     }
 
@@ -94,8 +92,7 @@ public class PersonaNatural extends Persona {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    public PersonaNatural(){
-        
+
+    public PersonaNatural() {
     }
 }

@@ -91,7 +91,6 @@ public class GrupoEstudio {
             String link,
             String coordenadas,
             ArrayList<DetalleGrupo> detalle) {
-//listaGrupo
 
         GrupoEstudio grupoEstudio = new GrupoEstudio(nombre,
                 academia,

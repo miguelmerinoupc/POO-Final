@@ -3,10 +3,30 @@ package benedicto_CTRL;
 import benedicto_clases.persona.PersonaNatural;
 import benedicto_clases.persona.Persona;
 import benedicto_clases.*;
+import benedicto_clases.persona.TipoPersona;
+import benedicto_interfaces.IBenedicto;
 import java.util.ArrayList;
 
-public class PersonaCTRL {
+public class PersonaCTRL implements IBenedicto<PersonaNatural> {
 
+    public void ListarResultado(ArrayList<PersonaNatural> listado) {
+        for (PersonaNatural persona : listado) {
+            if (persona.getTipo_persona().getTipo_persona() == 'C') {
+                System.out.println("\tNombre: " + persona.getNombre());
+                System.out.println("\tApellido Paterno: " + persona.getAp_paterno());
+                System.out.println("\tApellido Materno: " + persona.getAp_materno());
+                System.out.println("\tDni: " + persona.getDni());
+                System.out.println("-\n");
+            } else {
+                System.out.println("\tNombre: " + persona.getNombre());
+                System.out.println("\tApellido Paterno: " + persona.getAp_paterno());
+                System.out.println("\tApellido Materno: " + persona.getAp_materno());
+                System.out.println("\tDni: " + persona.getDni());
+                System.out.println("-\n");
+            }
+
+        }
+    }
     private ArrayList<Persona> listapersona = new ArrayList<Persona>();
     private ArrayList<PersonaNatural> listapersonaNatural = new ArrayList<PersonaNatural>();
 
@@ -37,7 +57,7 @@ public class PersonaCTRL {
         }
         return false;
     }
- //<------FALTA
+
     public boolean VolverAProspecto(String codigo, char tipo) {
         PersonaNatural persona;
 
@@ -46,8 +66,7 @@ public class PersonaCTRL {
 
             if (tipo == 'C') {
                 if (persona.getCodigo().equals(codigo)) {
-                   
-                    //Persona.ActualizaEstado(persona.getTipo_persona());
+                    persona.getTipo_persona().setTipo_persona('P');
                     return true;
                 }
             }
@@ -58,7 +77,7 @@ public class PersonaCTRL {
     public ArrayList<PersonaNatural> Buscar(String nombres, String ap_paterno, String ap_materno, char tipo) {
         PersonaNatural persona;
         ArrayList<PersonaNatural> listaBuscada = new ArrayList<PersonaNatural>();
-        
+
         for (int i = 0; i < listapersonaNatural.size(); i++) {
             persona = listapersonaNatural.get(i);
 
@@ -79,4 +98,3 @@ public class PersonaCTRL {
         return listaBuscada;
     }
 }
-

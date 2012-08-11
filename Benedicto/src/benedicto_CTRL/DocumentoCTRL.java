@@ -8,6 +8,7 @@ import benedicto_clases.Grupo_de_Estudios.GrupoEstudio;
 import benedicto_clases.documentos.*;
 import benedicto_clases.persona.PersonaJuridica;
 import benedicto_clases.persona.PersonaNatural;
+import benedicto_interfaces.IBenedicto;
 import benedicto_ordenamientos.DocumentoSortFecVencimiento;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,8 +18,40 @@ import org.joda.time.DateTime;
  *
  * @author FRANKLIN
  */
-public class DocumentoCTRL {
+public class DocumentoCTRL implements IBenedicto<Documento> {
 
+    public void ListarResultado(ArrayList<Documento> listado) {
+        for (Documento documento : listado) {
+            if (documento.getTipoMov().getTipoMov() == 'V') {
+                System.out.println("Numero : " + documento.getNumero()
+                        + "\tFecha Emision : " + documento.getFecEmision()
+                        + "\tFecha Vencimiento : " + documento.getFecVencimiento()
+                        + "\tFecha Pago : " + documento.getFecPago()
+                        + "\tEstado : " + documento.getEstado());
+
+                for (DetalleDocumento detalle : documento.getDetalle()) {
+                    System.out.println("Grupo : " + detalle.getGrupoEstudio().getNombre());
+                }
+                System.out.println("-\n");
+            } else {
+                System.out.println("Numero : " + documento.getNumero()
+                        + "\tFecha Emision : " + documento.getFecEmision()
+                        + "\tFecha Vencimiento : " + documento.getFecVencimiento()
+                        + "\tFecha Pago : " + documento.getFecPago()
+                        + "\tEstado : " + documento.getEstado());
+
+                for (DetalleDocumento detalle : documento.getDetalle()) {
+                    System.out.println("Item : " + detalle.getArticulo().getNombre()
+                            + "\tCantidad : " + detalle.getCantidad()
+                            + "\tPrecio : " + detalle.getPrecio()
+                            + "\tTotal : " + detalle.getTotal());
+                }
+                System.out.println("-\n");
+            }
+
+
+        }
+    }
     private ArrayList<Documento> listadocumento = new ArrayList<Documento>();
 
     public void AgregarDocumento(Documento documento) {

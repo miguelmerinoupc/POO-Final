@@ -1,4 +1,3 @@
-// autor : Luis Valle
 package PruebasBenedicto;
 
 import benedicto_clases.documentos.Documento;
@@ -90,18 +89,8 @@ public class VentasTest {
 
         System.out.println("Encontrados ....:" + cantidadencontrada);
 
-        for (int i = 0; i < listaencontrada.size(); i++) {
-            documentos = listaencontrada.get(i);
-            detalleDocumento = documentos.getDetalle();
-            for (DetalleDocumento detalle : detalleDocumento) {
-                System.out.println("Documento : " + detalle.getGrupoEstudio().getNombre()
-                        + "\tNumero : " + documentos.getNumero()
-                        + "\tFecha Emision : " + documentos.getFecEmision()
-                        + "\tFecha Vencimiento : " + documentos.getFecVencimiento()
-                        + "\tFecha Pago : " + documentos.getFecPago()
-                        + "\tEstado : " + documentos.getEstado());
-            }
-        }
+        documentoCTRL.ListarResultado(listaencontrada);
+
     }
 
     @Test
