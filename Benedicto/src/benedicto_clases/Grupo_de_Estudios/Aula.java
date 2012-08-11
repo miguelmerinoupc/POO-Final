@@ -9,4 +9,10 @@ public class Aula {
     }
     private String codigo;
     private String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
 }

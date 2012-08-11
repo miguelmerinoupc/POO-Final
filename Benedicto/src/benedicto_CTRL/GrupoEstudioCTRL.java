@@ -2,20 +2,16 @@ package benedicto_CTRL;
 
 // Autor : Miguel Merino
 import benedicto_clases.Grupo_de_Estudios.GrupoEstudio;
-import benedicto_clases.Grupo_de_Estudios.Academia;
 import benedicto_Asociaciones.*;
+import benedicto_interfaces.IBenedicto;
 import benedicto_ordenamientos.*;
-import java.lang.String;
-import java.lang.String;
 import java.util.ArrayList;
 import java.util.Collections;
 import org.joda.time.DateTime;
 
-public class GrupoEstudioCTRL {
+public class GrupoEstudioCTRL implements IBenedicto<GrupoEstudio> {
 
-    private ArrayList<Academia> listaAcademia = new ArrayList<Academia>();
     private ArrayList<GrupoEstudio> listaGrupo = new ArrayList<GrupoEstudio>();
-    private DateTime fecha = new DateTime(2012, 1, 15, 0, 0);
 
     public Boolean ValidoCamposObligatorios(GrupoEstudio grupoEstudio) {
         return grupoEstudio.VerificarObligatorios();
@@ -75,21 +71,21 @@ public class GrupoEstudioCTRL {
         return listaencontrada;
     }
 
-    public void ListarResultado() {
-        GrupoEstudio grupo;
-        for (int i = 0; i < listaGrupo.size(); i++) {
-            grupo = listaGrupo.get(i);
-
+    public void ListarResultado(ArrayList<GrupoEstudio> listado) {
+        for (GrupoEstudio grupo : listado) {
             System.out.println("Grupo: " + grupo.getNombre());
             System.out.println("\tAcademia: " + grupo.getAcademia().getNombre());
             System.out.println("\tFecha Inicio: " + grupo.getFechaInicio().toString());
             System.out.println("\tFecha Fin: " + grupo.getFechaFin().toString());
             System.out.println("\tLink Sillabus: " + grupo.getLinkWeb());
             System.out.println("\tCoordenadas Google: " + grupo.getCoordenadasGoogle());
-            System.out.println("Grupo: " + grupo.getNombre());
-
-
-            System.out.println("-");
+            for (DetalleGrupo detalleGrupo : grupo.getDetalle()) {
+                System.out.println(
+                        "\tCurso: " + detalleGrupo.getCurso().getNombre()
+                        + "\tInstructor: " + detalleGrupo.getInstructor().getNombre()
+                        + "\tAula: " + detalleGrupo.getAula().getNombre());
+            }
+            System.out.println("-\n");
         }
     }
 }

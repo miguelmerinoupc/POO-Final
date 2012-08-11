@@ -10,4 +10,10 @@ public class Instructor {
         this.codigo = codigo;
         this.nombre = nombre;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    
 }

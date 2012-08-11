@@ -14,9 +14,14 @@ import org.junit.Test;
  */
 public class GrupoEstudioTest {
 
+    GrupoEstudioCTRL grupoCTRL;
+
+    public GrupoEstudioTest() {
+        grupoCTRL = new GrupoEstudioCTRL();
+    }
+
     @Test
     public void VerificarAltaGrupo() {
-        GrupoEstudioCTRL grupoCTRL = new GrupoEstudioCTRL();
         GrupoEstudio grupo;
         Academia academia;
 
@@ -59,5 +64,17 @@ public class GrupoEstudioTest {
             // Dar de alta un grupo de estudio
             Assert.assertEquals(true, grupoCTRL.AltaGrupo(grupo));
         }
+    }
+
+    @Test
+    public void VerificarBusquedaGrupoEstudio() {
+        VerificarAltaGrupo();
+
+        ArrayList<GrupoEstudio> listadoEncontrado =
+                grupoCTRL.BuscarGrupo("POO", "Ing. Sistemas", "Calculo I", null, null, null);
+
+        Assert.assertEquals(true, listadoEncontrado.size() > 0);
+
+        grupoCTRL.ListarResultado(listadoEncontrado);
     }
 }

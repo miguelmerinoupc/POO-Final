@@ -20,4 +20,14 @@ public class DetalleGrupo {
     public Curso getCurso() {
         return curso;
     }
+
+    public Aula getAula() {
+        return aula;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+
 }
